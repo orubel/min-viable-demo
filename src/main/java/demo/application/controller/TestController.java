@@ -9,11 +9,20 @@ import org.springframework.scheduling.annotation.Async;
 import java.util.concurrent.CompletableFuture;
 
 @Controller("test")
-@Async("taskExecutor")
+
 public class TestController extends BeapiRequestHandler{
 
+	// async
+	@Async("taskExecutor")
 	public CompletableFuture<String> show(HttpServletRequest request, HttpServletResponse response){
 		return CompletableFuture.completedFuture("Hello world");
     }
 
+    // normal
+	/*
+	public String show(HttpServletRequest request, HttpServletResponse response){
+		return "Hello world";
+	}
+	
+	 */
 }
