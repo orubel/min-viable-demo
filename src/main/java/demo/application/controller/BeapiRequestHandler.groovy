@@ -67,6 +67,7 @@ class BeapiRequestHandler implements HttpRequestHandler {
 
             // invoke method
             if (Objects.nonNull(method)) {
+                println("has method")
                 try {
                     output = method.invoke(this, request, response);
                 } catch (IllegalArgumentException e) {
@@ -81,6 +82,7 @@ class BeapiRequestHandler implements HttpRequestHandler {
             };
 
             if (output != null) {
+                println("has output")
                 PrintWriter writer = response.getWriter();
                 writer.write(output);
                 writer.close()

@@ -5,14 +5,15 @@ import org.springframework.stereotype.Controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.*;
+import org.springframework.scheduling.annotation.Async;
+import java.util.concurrent.CompletableFuture;
 
 @Controller("test")
+@Async("taskExecutor")
 public class TestController extends BeapiRequestHandler{
 
-	public String show(HttpServletRequest request, HttpServletResponse response){
-		System.out.println("test/show");
-        System.out.println("test/show called");
-		return "Hello world";
+	public CompletableFuture<String> show(HttpServletRequest request, HttpServletResponse response){
+		return CompletableFuture.completedFuture("Hello world");
     }
 
 }

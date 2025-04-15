@@ -34,7 +34,7 @@ public class TomcatConfig  {
     protected Integer minSpareThreads;
     protected Integer maxConnections;
 
-    @Bean("otherExecutor")
+    @Bean("taskExecutor")
     public TaskExecutor threadPoolTaskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(10);
